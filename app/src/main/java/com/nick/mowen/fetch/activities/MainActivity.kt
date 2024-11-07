@@ -1,4 +1,8 @@
 package com.nick.mowen.fetch.activities
 
-class MainActivity {
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+
 }
