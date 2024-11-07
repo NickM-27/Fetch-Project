@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -19,7 +20,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.nick.mowen.fetch.R
 import com.nick.mowen.fetch.data.models.ListingData
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import java.util.SortedMap
 
 @Composable
@@ -27,13 +30,17 @@ fun ListingScreen(listingsFlow: StateFlow<SortedMap<Int, List<ListingData>>>) {
     val listings = listingsFlow.collectAsState()
     val scrollState = rememberScrollState()
 
-    Column(
-        modifier = Modifier
-            .padding(24.dp)
-            .verticalScroll(scrollState)
-    ) {
-        listings.value.forEach { (id, items) ->
-            ListingRow(id, items)
+    Scaffold { padding ->
+        Column(
+            modifier = Modifier
+                .padding(padding)
+                .verticalScroll(scrollState)
+                .padding(12.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            listings.value.forEach { (id, items) ->
+                ListingRow(id, items)
+            }
         }
     }
 }
@@ -65,5 +72,6 @@ fun ListingCard(data: ListingData) {
 @Composable
 @Preview
 fun ListingScreenPreview() {
-
+    val flow = MutableStateFlow(sortedMapOf(1 to listOf(ListingData(3, 1, "Item 3")), 2 to listOf(ListingData(4, 2, "Item 4"))))
+    ListingScreen(flow.asStateFlow())
 }

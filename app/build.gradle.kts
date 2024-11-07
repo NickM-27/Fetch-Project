@@ -55,6 +55,7 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.activity)
     implementation(libs.androidx.compose.preview)
+    debugImplementation(libs.androidx.compose.tooling)
 
     // Network
 
