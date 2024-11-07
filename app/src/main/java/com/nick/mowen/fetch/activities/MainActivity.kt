@@ -5,8 +5,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material3.MaterialTheme
-import com.nick.mowen.fetch.listing.ListingScreen
-import com.nick.mowen.fetch.listing.ListingViewModel
+import com.nick.mowen.fetch.screens.ListingScreen
+import com.nick.mowen.fetch.data.ListingViewModel
 
 class MainActivity : AppCompatActivity() {
 

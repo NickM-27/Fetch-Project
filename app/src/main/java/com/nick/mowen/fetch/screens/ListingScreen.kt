@@ -1,4 +1,4 @@
-package com.nick.mowen.fetch.listing
+package com.nick.mowen.fetch.screens
 
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
