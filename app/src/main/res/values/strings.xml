@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Fetch Project</string>
     <string name="template_listing">Listing ID: %d</string>
+    <string name="title_fetch_project">Fetch Project</string>
 </resources>
